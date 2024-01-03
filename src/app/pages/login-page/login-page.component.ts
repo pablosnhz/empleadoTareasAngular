@@ -16,7 +16,7 @@ export class LoginPageComponent implements OnInit {
   constructor(private router: Router, private authService: AuthService){}
 
   ngOnInit(): void {
-
+    // SI ESTE ES TRUE ENTONCES NOS MANDA A HOME, SI ESTA LOGUEADO VA A HOME
     let token = sessionStorage.getItem('token');
 
     if(token){

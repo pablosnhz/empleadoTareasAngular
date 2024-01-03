@@ -11,17 +11,19 @@ export class AppComponent implements OnInit {
 
   token: string | null = '';
 
+  // llamamos al router para el navigate login
   constructor(private router: Router){}
 
 
   ngOnInit(): void {
-    this.token = sessionStorage.getItem('token')
+    this.token = sessionStorage.getItem('token');
   }
 
 
   logout(){
+    // NOS REDIRRECIONA A LOGIN SI NO HAY USUARIO, TOKEN
     sessionStorage.removeItem('token');
-    this.router.navigate(['login'])
+    this.router.navigate(['login']);
   }
 }
 
