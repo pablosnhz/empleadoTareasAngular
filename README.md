@@ -11,3 +11,5 @@ Utilizamos el routerLink para los enlaces dentro de las etiquetas. Para hacer la
 ActivatedRoute nos va a decir el contenido que hay en la url, controlamos a donde se podra navegar y donde no, usando el AuthGuard, que es lo que nos va a dar esa opcion que la vamos a declarar en en routing.module, esencial las opciones de los opciones y cual vamos a usar, ahora usamos el CanActivate(lo seleccionamos cuando generamos el guard). en el authGuard no nos dejo traer el constructor router asi que lo tuvimos que traer mediante un inject declarado.
 
 SEGUNDA PARTE
+
+Generamos el codigo para navegar entre rutas como un amigo invisible, que depende quien sea nos van a aparecer sus datos y tambien le agregamos diversos filtros.
