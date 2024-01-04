@@ -12,4 +12,4 @@ ActivatedRoute nos va a decir el contenido que hay en la url, controlamos a dond
 
 SEGUNDA PARTE
 
-Generamos el codigo para navegar entre rutas como un amigo invisible, que depende quien sea nos van a aparecer sus datos y tambien le agregamos diversos filtros.
+Generamos el codigo para navegar entre rutas como un amigo invisible, que depende quien sea nos van a aparecer sus datos y tambien le agregamos diversos filtros. Agregamos tambien el boton para cerrar el login que nos redirrecciona a la pantalla de home.
