@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginPageComponent implements OnInit {
 
   // SP
+  // las definimos para la funcion y para llamarlas en el index con el ngModel
   email: string = '';
   password: string = '';
 
@@ -17,6 +18,8 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     // SI ESTE ES TRUE ENTONCES NOS MANDA A HOME, SI ESTA LOGUEADO VA A HOME
+    //esta es una primera parte creo, si lo saca todo funciona. pero de que nos sirve si estamos
+    // trayendo el service el cual hace lo mismo.
     let token = sessionStorage.getItem('token');
 
     if(token){

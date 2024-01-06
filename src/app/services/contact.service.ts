@@ -16,6 +16,7 @@ export class ContactService {
       let listaFiltrada: IContacto[] = this.listaContactos.filter((contacto)=> contacto.sexo == sexo);
       return Promise.resolve(listaFiltrada);
     } else if (sexo == 'todos') {
+      // si son todos devuelve la listaContactos con todos
       return Promise.resolve(this.listaContactos)
     } else {
       return Promise.reject('filtro no valido');

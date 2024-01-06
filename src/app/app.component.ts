@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
 }
 
 // SP paso de informacion entre components:
-// 1: a traves de @Inputs y @Outputs
+// 1: a traves de @Inputs y @Outputs  // hasta el video 7 usamos de esto
 // 2: a traves de inyeccion de constructires de components hijos @viewChild, @ContentChild o @ContentChildren
 // 3: a traves de servicios (promesas y observables) --> NGRX (gestion del estado de la aplicacion)
-// 4: a traves de parametros entre rutas
+// 4: a traves de parametros entre rutas // hasta el video 7 usamos de esto

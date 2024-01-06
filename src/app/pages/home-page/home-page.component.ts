@@ -21,6 +21,7 @@ export class HomePageComponent implements OnInit {
     this.token = sessionStorage.getItem('token')
     // Leemos del estado del historial de navegacion, data o cualquier name
     if(history.state.data){
+      // con esto traemos el dato seleccionado en contacts "Seleccionar un amigo invisible"
       console.log(history.state.data);
       this.contactoSeleccionado = history.state.data;
       }

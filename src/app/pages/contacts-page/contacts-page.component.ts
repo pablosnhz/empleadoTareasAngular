@@ -22,20 +22,17 @@ export class ContactsPageComponent implements OnInit {
 
   // Ejemplo paso de inf entre component a traves del ESTADO
   volverAHome(contacto: IContacto){
-
     let navigationExtras: NavigationExtras = {
       state: {
         data: contacto
-      }
-    }
-
+      } // con esto obtengo el contacto para luego...
+    }   // para luego con el navigate, llevarlo al home
     this.router.navigate(['/home'], navigationExtras)
   }
 
   ngOnInit(): void{
     // SP
     // Obtenemos los datos de los contactos mediante su sexo, mediante queryParams
-
     this.route.queryParams.subscribe((params: any) => {
       console.log('QueryParam:', params.sexo)
       // definimos el filtrosexo que lo agregamos en la SP
@@ -44,13 +41,10 @@ export class ContactsPageComponent implements OnInit {
     }
       // Obtenemos la lista de contactos. SP
       this.contactService.obtenerContactos(this.filtroSexo)
+      // esta lista la traemos para hacer uso de ella para iterar sobre datos
       .then((lista) => this.listaContactos = lista)
       .catch((error) => console.error(`Ha habido un error al obtener contactos: ${error}`))
       .finally(() => console.log(`Peticion de contactos terminada`))
-
     })
-
-
   }
-
 }
