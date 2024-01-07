@@ -33,6 +33,4 @@ export class ContactDetailPageComponent implements OnInit {
       this.filtroPrevio = history.state.filtro;
     }
   };
-
-
 }
