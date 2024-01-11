@@ -11,8 +11,9 @@ export class LoginPageComponent implements OnInit {
 
   // SP
   // las definimos para la funcion y para llamarlas en el index con el ngModel
-  email: string = '';
-  password: string = '';
+  // marque como comentario para el nuevo Login
+  // email: string = '';
+  // password: string = '';
 
   constructor(private router: Router, private authService: AuthService){}
 
@@ -27,10 +28,14 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  loginUser(){
+  // loginUser(email: string, password: string){
+
+  loginUser(value: any){
+
+    let {email, password} = value;
 
     // SP
-      this.authService.login(this.email, this.password).subscribe(
+      this.authService.login(email, password).subscribe(
         (response) => {
           if(response.token){
             // primera parte

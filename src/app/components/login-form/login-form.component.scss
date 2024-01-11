@@ -1,0 +1,31 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+// modificar estilos de card
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-card-header{
+  // deshabilitamos el flex por defecto de material
+  display: unset;
+}
+
+mat-card-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// MODIFICAMOS LOS ESTILOS DE LOS CAMPOS DE FORMULARIO DE ANGULAR MATERIAL
+mat-form-field{
+  display: block;
+  min-width: 300px;
+  width: 100%;
+}

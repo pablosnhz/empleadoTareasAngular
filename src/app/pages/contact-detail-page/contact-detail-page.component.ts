@@ -10,7 +10,13 @@ import { IContacto } from 'src/app/models/contact.interface';
 export class ContactDetailPageComponent implements OnInit {
 
   id: any | undefined;
-  contacto: IContacto | undefined;
+  contacto: IContacto = {
+    id: 0,
+    nombre: '',
+    apellidos: '',
+    email: '',
+    sexo: 'mujer'
+  }
   filtroPrevio: string | undefined;
 
   constructor(private route: ActivatedRoute){}
