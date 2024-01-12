@@ -70,3 +70,21 @@ Creamos un let token para saber si esta para saber si el token esta presente en 
 Como hacemos uso de los parametros que nos van a dar la opcion de seleccionar los Amigos o Amigas, mediante un navigationExtras declaramos el parametro queryParams que va a tener el sexo el cual van a estar 'todos' pero el [queryParams] los definimos uno con 'hombre' y el otro 'mujer' en el index el navigationExtra lo generamos dentro de la funcion de navegarAContacts.
 Como hacemos para obtener eso segun su sexo, esto ya lo habiamos definido en el service para hacer la busqueda, por medio del route: ActivatedRoute, en el ngOnInit hacemos uso del queryParams, nos suscribimos y creamos una funcion la cual if params.sexo se va a almacenar en filtroSexo la cual declare como 'todos' pero en el caso de no ser asi, va a traer los hombres o mujeres aunque creo que no era tampoco necesario poner 'todos' porque si lo saco y dejo el '' vacio, vuelve igual.
 Una vez hecho eso en contactsPage, ahora mediante un ngIf dentro de un container vamos a seleccionar el sexo segun lo que hayamos seleccionado si amigo o amiga, si seleccione mujer o hombre por el filtroSexo, en el caso de haber seleccionado uno se mostrara como "has seleccionado a {{ filtroSexo }}, de no ser asi ngTemplate, estas viendo la lista completa.
+
+==========================
+
+PIPES
+Aca generamos un pipe el cual nos va a traer el nombre completo de una persona de tipo IContacto. En este caso solo hicimos uso de el pipe para mostrarlo en el proyecto. Nos centramos mas en el estilo con AngularMaterial.
+
+Creacion de nuevo componente para hacer uso de Angular Material
+Donde dentro del hice uso de la etiqueta mat-card, donde coloque el card-title, card-subtitle, otra con el mat-content, dentro el form y lo acomode con scss.
+
+==========================
+
+HACEMOS EL LOGIN CON REACTIVE FORMS.
+
+Como venimos haciendo hacemos uso del formGroup, formBuilder, Validators. En el constructor llamamos a formBuilder y elegimos un nombre para llamar al formGroup y lo iniciamos vacio. Dentro del group dentro del on init, vamos a tener el email y password con validators, con required y email. mediante un get obtenemos lo que generamos dentro del group devolviendo los mismos.
+Y un funcion para el boton submit, si el loginForm is valid, que fue el nombre del group, por consola podriamos traer los valores de los datos del login.
+Vamos a crear un Output el cual va a tener un event emitter el cual lo vamos a llevar a la primer login, como sabemos que esto se trata del login, dentro del submit que generamos para el SUBMIT dentro de la funcion vamos a emitir el nombre del output y pasamos el nombre del group con su value.
+Vamos a llamar al nuevo component con el que ya teniamos para mostrarlo en pantalla, dentro de esa etiqueta llamamos al output con el la funcion de login, en este caso loginUser de tipo event.
+Dentro de la funcion declaramos un valor de tipo any el cual vamos a poner dentro de un let email y password = value para asi luego tener la respuesta del token.
