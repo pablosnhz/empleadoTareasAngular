@@ -21,11 +21,11 @@ export class RandomUserService {
     )
   }
 
-  obtenerRandomContact(): Observable<Results[]>{
+  obtenerRandomContact(): Observable<Results>{
     // generenamos un pipe es luego de todo que es algo mas avanzado
     // si algo sale mal cuando estamos suscritos recibimos este error
     // el handleError.
-    return this.http.get<Results[]>('https://randomuser.me/api').pipe(
+    return this.http.get<Results>('https://randomuser.me/api').pipe(
       // retry de rxjs si lo buscamos dos veces y no aparece
       // nos va a aparecer el error si algo falla.
       retry(2),
@@ -45,10 +45,10 @@ export class RandomUserService {
     )
   }
 
-  obtenerRandomContactsPorGenero(sexo:string): Observable<Results[]>{
+  obtenerRandomContactsPorGenero(sexo:string): Observable<Results>{
     const params: HttpParams = new HttpParams().set("gender", sexo);
 
-    return this.http.get<Results[]>('https://randomuser.me/api', {params: params}).pipe(
+    return this.http.get<Results>('https://randomuser.me/api', {params: params}).pipe(
       retry(2),
       catchError(this.handleError)
     )

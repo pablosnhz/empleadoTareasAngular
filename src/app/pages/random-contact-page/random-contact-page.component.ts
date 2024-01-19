@@ -15,8 +15,8 @@ export class RandomContactPageComponent implements OnInit{
 
   ngOnInit(): void {
     this.randomUsersService.obtenerRandomContact().subscribe(
-      (response: Results[]) => {
-        // this.contact = response.results[0];
+      (response: Results) => {
+        this.contact = response.results[0];
         // le pasamos esto al randomContact
         console.log(response);
       });
@@ -36,8 +36,8 @@ export class RandomContactPageComponent implements OnInit{
     // PARA LAS BUENAS PRACTICAS RXJS MANEJO DE ERRORES
     this.randomUsersService.obtenerRandomContact().subscribe(
       {
-        next: (response: Results[]) => {
-          // this.contact = response.results[0];
+        next: (response: Results) => {
+          this.contact = response.results[0];
           console.log(response);
         },
         error: (error) => console.error(`${error}`),
@@ -55,7 +55,7 @@ export class RandomContactPageComponent implements OnInit{
           console.log(response);
         },
         error: (error) => console.error(`${error}`),
-        complete: ()=> console.info('Peticion de random contacts terminada')
+        complete: () => console.info('Peticion de random contacts terminada')
       }
     );
   }
