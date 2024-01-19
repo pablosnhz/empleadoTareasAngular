@@ -1,6 +1,6 @@
 <!-- <h1>Contacto: ID</h1> -->
 
-<ng-container *ngIf="contacto.email; else elseContacto">
+<ng-container *ngIf="contacto; else elseContacto">
   <h1>Contacto: {{ id }}</h1>
   <!-- GENERAMOS UN PIPE PARA TRAER EL NOMBRE COMPLETO -->
   <h2>Nombre: {{ contacto | nombreCompleto }}</h2>

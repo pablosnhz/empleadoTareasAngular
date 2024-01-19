@@ -36,16 +36,24 @@ export class RandomUserService {
 // en vez de any tambien podria poner Observer<Results[]> pero tambien
 // lo tengo que poner en el get<Results[]>, hice una prueba de esto
 // en la funcion de arriba ObtenerRandomContact.
-  obtenerRandomContacts(n: number): Observable<Results[]>{
-    const params: HttpParams = new HttpParams().set("results", n);
+  obtenerRandomContacts(n: number, sexo?: string): Observable<Results>{
+    let params: HttpParams = new HttpParams().set("results", n);
 
-    return this.http.get<Results[]>('https://randomuser.me/api', {params: params}).pipe(
+    // lo agregamos para filtra sexo, en contactspage ts
+    if(sexo){
+      console.log('Filtrado por mujer/hombre');
+      // pusimos params.set y nos trae tanto male como female y no por filtro,
+      // probamos con append y usando el let params que antes lo tenia en const.
+      params = params.append('gender', sexo);
+    }
+
+    return this.http.get<Results>('https://randomuser.me/api', {params: params}).pipe(
       retry(2),
       catchError(this.handleError)
     )
   }
 
-  obtenerRandomContactsPorGenero(sexo:string): Observable<Results>{
+  obtenerRandomContactsPorGenero(n: number, sexo:string): Observable<Results>{
     const params: HttpParams = new HttpParams().set("gender", sexo);
 
     return this.http.get<Results>('https://randomuser.me/api', {params: params}).pipe(

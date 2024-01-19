@@ -50,7 +50,7 @@ export class RandomContactPageComponent implements OnInit{
   obtenerListaContactos(n: number){
     this.randomUsersService.obtenerRandomContacts(n).subscribe(
       {
-        next: (response: Results[]) => {
+        next: (response: Results) => {
           // this.contact = response.results[0];
           console.log(response);
         },
