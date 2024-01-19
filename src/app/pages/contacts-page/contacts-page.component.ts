@@ -39,6 +39,8 @@ export class ContactsPageComponent implements OnInit {
       if(params.sexo){
       this.filtroSexo = params.sexo;
     }
+
+    // ACA OBTENEMOS LA SEPARACION ENTRE GENERO, HOMBRE Y MUJER
       // Obtenemos la lista de contactos. SP
       this.contactService.obtenerContactos(this.filtroSexo)
       // esta lista la traemos para hacer uso de ella para iterar sobre datos

@@ -1,0 +1,33 @@
+<h4> Random Contact </h4>
+
+<ng-container *ngIf="randomContact; else noContact">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="random-contact-image">
+        <img [src]="randomContact.picture.thumbnail">
+      </div>
+    <mat-card-title>
+      {{ randomContact.name.title }}
+      {{ randomContact.name.first }}
+      {{ randomContact.name.last }}
+    </mat-card-title>
+    <mat-card-subtitle>{{ randomContact.name.last }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ randomContact.location.country }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-button>Elegir como amigo</button>
+      <button mat-button>Volver</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+
+
+
+<ng-template #noContact>
+  <h3>Cargando Contacto Aleatorio...</h3>
+  <mat-spinner></mat-spinner>
+</ng-template>

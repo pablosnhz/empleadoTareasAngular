@@ -1,0 +1,66 @@
+{
+  "results": [
+      {
+          "gender": "female",
+          "name": {
+              "title": "Ms",
+              "first": "Kim",
+              "last": "Morgan"
+          },
+          "location": {
+              "street": {
+                  "number": 1405,
+                  "name": "Windsor Road"
+              },
+              "city": "Exeter",
+              "state": "Buckinghamshire",
+              "country": "United Kingdom",
+              "postcode": "MY4 9LS",
+              "coordinates": {
+                  "latitude": "-10.2385",
+                  "longitude": "59.0653"
+              },
+              "timezone": {
+                  "offset": "+3:30",
+                  "description": "Tehran"
+              }
+          },
+          "email": "kim.morgan@example.com",
+          "login": {
+              "uuid": "9af92f51-4c81-45e0-bd7b-51a5532a4430",
+              "username": "sadfrog206",
+              "password": "johnson",
+              "salt": "VFfv3aE2",
+              "md5": "f895922d4a5df15aa3d073b62fdbd574",
+              "sha1": "c65d9f92918cc170cea119b4bf0c42debf27eaba",
+              "sha256": "160a552cfb99de235723f4ad60fd0bc1ef765bd36c06b2896ec7edf969d4ad78"
+          },
+          "dob": {
+              "date": "1980-06-23T05:28:39.086Z",
+              "age": 43
+          },
+          "registered": {
+              "date": "2009-09-18T06:52:17.618Z",
+              "age": 14
+          },
+          "phone": "015395 23167",
+          "cell": "07163 541666",
+          "id": {
+              "name": "NINO",
+              "value": "EP 43 58 99 X"
+          },
+          "picture": {
+              "large": "https://randomuser.me/api/portraits/women/32.jpg",
+              "medium": "https://randomuser.me/api/portraits/med/women/32.jpg",
+              "thumbnail": "https://randomuser.me/api/portraits/thumb/women/32.jpg"
+          },
+          "nat": "GB"
+      }
+  ],
+  "info": {
+      "seed": "1d8fbafb9de6a5e4",
+      "results": 1,
+      "page": 1,
+      "version": "1.4"
+  }
+}

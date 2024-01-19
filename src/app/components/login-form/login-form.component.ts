@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 // importamos lo necesario para construir el formulario
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -15,7 +16,7 @@ export class LoginFormComponent implements OnInit{
   // con un OUTPUT traemos los valores del loginUser de login-page.component
   @Output() loginAction: EventEmitter<{}> = new EventEmitter<{}>
 
-  constructor( private formBuilder: FormBuilder){}
+  constructor( private formBuilder: FormBuilder, private route: Router){}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -39,7 +40,6 @@ export class LoginFormComponent implements OnInit{
 
       // tomamos los valores del OUTPUT y los emitimos aca
       this.loginAction.emit(this.loginForm.value);
-
       // this.loginForm.reset();
     }
   }

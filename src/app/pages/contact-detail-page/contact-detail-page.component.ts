@@ -23,6 +23,7 @@ export class ContactDetailPageComponent implements OnInit {
 
   ngOnInit(): void {
     // vamos a leer los parametros
+     // llame al activatedRoute para hacer uso del PARAMS
     this.route.params.subscribe(
       (params: any) => {
         if(params.id){
@@ -32,9 +33,12 @@ export class ContactDetailPageComponent implements OnInit {
     )
       // vamos a leer el STATE el contacto
       // history para leer
+      // SIN ESTO DECLARADO EN EL CON EL [STATE] en contactsPage
+      // los datos no se muestran en el detail
     if(history.state.data){
       this.contacto = history.state.data;
     }
+    // lo declaramos en este html para luego llevarlo al otro html, con el [state]
     if(history.state.filtro){
       this.filtroPrevio = history.state.filtro;
     }

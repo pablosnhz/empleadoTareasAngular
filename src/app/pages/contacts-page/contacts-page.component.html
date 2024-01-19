@@ -3,6 +3,7 @@
 <!-- listar contactos y poder navegar al pinchar en ellos, al detalle -->
 <div *ngFor="let contacto of listaContactos; let i = index">
 
+  <!-- hacemos uso del [state] para mostrar los datos en el contactsDetail -->
   <div routerLink="{{ contacto.id }}" [state]="{data: contacto, filtro: filtroSexo}">
     <h5 class="contacto">{{ contacto.nombre }}</h5>
     <!-- segunda parte -->
