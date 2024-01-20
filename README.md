@@ -88,3 +88,27 @@ Y un funcion para el boton submit, si el loginForm is valid, que fue el nombre d
 Vamos a crear un Output el cual va a tener un event emitter el cual lo vamos a llevar a la primer login, como sabemos que esto se trata del login, dentro del submit que generamos para el SUBMIT dentro de la funcion vamos a emitir el nombre del output y pasamos el nombre del group con su value.
 Vamos a llamar al nuevo component con el que ya teniamos para mostrarlo en pantalla, dentro de esa etiqueta llamamos al output con el la funcion de login, en este caso loginUser de tipo event.
 Dentro de la funcion declaramos un valor de tipo any el cual vamos a poner dentro de un let email y password = value para asi luego tener la respuesta del token.
+
+===================
+
+HTTP
+
+Para pasar pasamos los datos del json de la api a formato interface lo hicimos con to json to typescript.
+Vamos a crear un servicio randomUser para generar un get dentro de una funcion obtenerRandomContact mediante una observable de un results, donde va a estar la url de la api y con esto ya nos estaria devolviendo el resultado para manipularlo luego en el componente aparte randomUser.ts dentro de el definimos randomResults de tipo results para luego dentro del onInit llamando a la funcion del service, nos vamos a suscribir para obtener la function response de tipo results.
+Definimos randomContact de tipo IRandomContact para que dentro del oninit definimos un let para llamarlo en el oninit y lo igualamos a response.results[0], ya con esto podemos ver los datos en pantalla haciendo su llamado con la definicion que hicimos randomContact en el html. Dentro de el para mostrar los datos lo hicimos por medio de un ngContainer y ngTemplate, dentro del MaterialModule importamos el spinner para usarlo en el ngTemplate.
+Definimos randomContact en un input, el que habiamos hecho le agregamos el import y el servicion con la funcion que llame, lo voy a pasar al otro componente, llevando esa funcion cambiamos randomContact por contact de tipo IRandomContact | undefined. Pero si es lo mismo no se para que traigo el input... si lo usamos porque traimos todo el componente al otro por el html y definimos el input pero es como si fuera lo mismo, pusimos en practica el input, sirve. Y comente el randomResults del primer componente porque solo lo usamos para hacer uso de la funcion que nos va a traer el resultado pero no, randomResults: Results eso lo usamos en la funcion el Results aunque podria haber venido sin la necesidad de haber puesto el randomResults.
+
+Generamos un funcion de obtenerNuevoContact con el mismo contenido del que habiamos hecho para hacer un button y evento click para cuando lo presionamos nos genera un nuevo contacto.
+
+Dentro del service generamos un handleError para manejar los errores donde se agrego error: HttpErrorResponse, como tambien se hizo uso de throwError de rxjs dentro de esta funcion.
+Este handleError podria ir dentro de catchError que lo pusimos dentro de ObtenerRandomContact dentro del service, donde tambien le agregamos el uso del .pipe y retry(2) que sirve para si despues de dos veces que se intento obtenerRandomContact y no cargo nada entonces se va a mostrar el catchError(this.handleError).
+
+PARA LAS BUENAS PRACTICAS RXJS MANEJO DE ERRORES
+dentro de obtenerNuevoContacto vamos a hacer uso del next, error y complete.
+Que dentro del next iria el response que obtuvimos cuando traimos el service.
+Esto nos va a leer el error que viene del handleError.
+
+Vamos a crear la funcion obtenerRandomContactos para obtener mas de 1 usuario, estoy lo hacemos mediante el httpParams que lo declaramos para empezar con una const y lo set con un "results"(este results es como aparece tal cual en la api como el "gender") y la n que declaramos dentro de la funcion del tipo n: number, esta funcion va a devolver el get con el url y el params: params, con el retry y el cacthError.
+Creamos la funcion de ObtenerRandomContactsPorGenero que va a ser lo mismo pero cambiamos results por "gender", sexo que es como lo definimos nosotros en otras clases.
+
+Generamos una funcion ObtenerListaContactos para traer del service el ObtenerRandomContacts(n) para hagamos uso de el html podamos poner cuantos contactos queremos que traiga y que se muestren en consola con el response.

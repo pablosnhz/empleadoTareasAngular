@@ -15,7 +15,7 @@ export class RandomUserService {
       console.log(`Ha ocurrido un error: ${error.error}`)
     } else {
       console.error(`Error en el backend: ${error.status}. El
-      error de la respues es: ${error.error}`)
+      error de la respuesta es: ${error.error}`)
     }
     return throwError(() => new Error('Error en la peticion de contacto aleatorio')
     )
