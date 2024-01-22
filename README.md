@@ -112,3 +112,20 @@ Vamos a crear la funcion obtenerRandomContactos para obtener mas de 1 usuario, e
 Creamos la funcion de ObtenerRandomContactsPorGenero que va a ser lo mismo pero cambiamos results por "gender", sexo que es como lo definimos nosotros en otras clases.
 
 Generamos una funcion ObtenerListaContactos para traer del service el ObtenerRandomContacts(n) para hagamos uso de el html podamos poner cuantos contactos queremos que traiga y que se muestren en consola con el response.
+
+PARTE 2 ADAPTAMOS LO QUE HICIMOS EN LA PRIMERA PARTE AL NUESTRO CODE
+llamamos al service RandomUserService al components de contacts-page, en el randomContact habiamos creado una funcion para obtener la listadeContacts, vamos a llevar esa funcion a nuestro codigo original que es contacts-page para vincularlo como datos reales, una vez traida dentro del next hicimos uso de un forEach con el response.results.foreach dentro de el creamos una funcion flecha de tipo IRandomContact la funcion va a tener dentro un push{this.listaRandomContacts.push(nombredelafuncion flecha)} para esta funcion pusheamos un randomContact. Que esta funcion nos va a devolver los 10 contactos tipo n:number que teniamos del principio de la funcion, esto va a venir en un array de strings.Estos 10 que nos va a devolver son los contactos, los datos de 10 contactos nos van a aparecer, donde tenia a messi henry y zidane, ahora van a venir 10 nuevos contactos de la api.
+
+En el volverAHome de este componente cambiamos el tipo contacto a :IRandomContact estamos adaptando todo el codigo del randomService a este componente. Dejamos de iterar en el for html con el listaContactos ahora la hacemos con la nueva de tipo IRandomContact que la definimos de este tipo. contenido: IRandomContact[].
+Tambien cambiamos los parametros que tenian hombre mujer a male female.
+
+Arreglamos los valores del pipe para que se adapte a los nuevos cambios, le cambiamos el IContacto al nuevo I...
+Donde definimos el pipe que creamos, nombreCompleto, nos salta el error que tambien hay que cambiar en el ts de tipo IRandomContact para que funcione.
+Estamos cambiado todo tipo IRandomContact, como tambien lo hacemos en el contactoSeleccionado de las clases anteriores, tambien recordar el html su interpolacion.
+
+Vamos a manejar los FILTROS por male y female que no me trae bien los datos
+Dentro del onInit hacemos uso de un condicional IF si trae male or female segun los params.sexo.
+Dentro del randomUser en la funcion de obtenerRandomContacts agregamos dentro de los parametros sexo?: string, si es que esta se va a mostrar.
+Dentro del obtenerRandomContacts if sexo entonces, params = params.append('gender', sexo), para que esto? solo params.append lo toma sin error pero sigue devolviendo el results=10 que es lo que no queremos, por eso usamos el params = params.apend, para que nos devuelva segun su gender si gender existe dentro esa condicional que hicimos con el if.
+Esta devolviendo por sexo pero traer variado y no segun el especificado, nos fijamos en el results del network y en vez de devolver resultsfemale o resultsmale nos muestra results=10 que seria que nos devuelve 10 de genero variado.
+Esto lo solucione haciendo los cambios donde tenia, hombre mujer, lo cambie a male y female.

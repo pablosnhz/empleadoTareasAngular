@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, catchError, retry, throwError } from 'rxjs';
-import { IRandomContact, Results } from '../models/randomuser';
+import { Results } from '../models/randomuser';
 
 @Injectable({
   providedIn: 'root'
