@@ -129,3 +129,6 @@ Dentro del randomUser en la funcion de obtenerRandomContacts agregamos dentro de
 Dentro del obtenerRandomContacts if sexo entonces, params = params.append('gender', sexo), para que esto? solo params.append lo toma sin error pero sigue devolviendo el results=10 que es lo que no queremos, por eso usamos el params = params.apend, para que nos devuelva segun su gender si gender existe dentro esa condicional que hicimos con el if.
 Esta devolviendo por sexo pero traer variado y no segun el especificado, nos fijamos en el results del network y en vez de devolver resultsfemale o resultsmale nos muestra results=10 que seria que nos devuelve 10 de genero variado.
 Esto lo solucione haciendo los cambios donde tenia, hombre mujer, lo cambie a male y female.
+
+=================
+APLICAMOS MATERIAL DESIGN, SCHEMATICS AL PROYECTO

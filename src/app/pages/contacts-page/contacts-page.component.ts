@@ -17,6 +17,8 @@ export class ContactsPageComponent implements OnInit {
   // listaContactos: IContacto[] = [];
   listaRandomContacts: IRandomContact[] = [];
 
+  cargando: boolean = true;
+
   // SP
   // active route para obtener los queryparams
   constructor(private router: Router,
@@ -31,11 +33,12 @@ export class ContactsPageComponent implements OnInit {
         data: contacto
       } // con esto obtengo el contacto para luego...
     }   // para luego con el navigate, llevarlo al home
-    this.router.navigate(['/home'], navigationExtras)
+    this.router.navigate(['/dashboard'], navigationExtras)
   }
 
   ngOnInit(): void{
-    // SP
+
+
     // Obtenemos los datos de los contactos mediante su sexo, mediante queryParams
     this.route.queryParams.subscribe((params: any) => {
       console.log('QueryParam:', params.sexo)
@@ -54,9 +57,15 @@ export class ContactsPageComponent implements OnInit {
                 this.listaRandomContacts.push(randomContact)
               })
               console.log(this.listaRandomContacts);
+              // AGREGAMOS PARA EL SPINNER
+              this.cargando = false;
             },
             error: (error) => console.error(`${error}`),
-            complete: () => console.info('Peticion de random contacts terminada')
+            complete: () => {
+              console.info('Peticion de random contacts terminada')
+              // AGREGAMOS PARA EL SPINNER
+              this.cargando = false;
+            }
           });
       } else {
         // Implementacion para obtener la lista de contactos aleatorias
@@ -68,9 +77,14 @@ export class ContactsPageComponent implements OnInit {
             this.listaRandomContacts.push(randomContact)
           })
           console.log(this.listaRandomContacts);
+          this.cargando = false;
         },
         error: (error) => console.error(`${error}`),
-        complete: () => console.info('Peticion de random contacts terminada')
+        complete: () => {
+          console.info('Peticion de random contacts terminada')
+          // AGREGAMOS PARA EL SPINNER
+          this.cargando = false;
+        }
       });
       }
     }

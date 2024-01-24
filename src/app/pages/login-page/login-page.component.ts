@@ -9,7 +9,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  // SP
   // las definimos para la funcion y para llamarlas en el index con el ngModel
   // marque como comentario para el nuevo Login
   // email: string = '';
@@ -41,8 +40,8 @@ export class LoginPageComponent implements OnInit {
             // primera parte
             sessionStorage.setItem('token', response.token);
             // una vez que responde bien nos va a redirreccionar al home
-            this.router.navigate(['home'])
-            // primera parte cierra aca
+            // CAMBIAR DE HOME A DASHBOARD ME SOLUCIONO EL ERROR DE INICIO
+            this.router.navigate(['dashboard'])
           }
         },
         (error) => console.error(`Ha habido un error al hacer login ${error}`),
