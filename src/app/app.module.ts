@@ -26,6 +26,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskPageComponent } from './pages/task-page/task-page.component';
 import { KabanTasksComponent } from './components/kaban-tasks/kaban-tasks.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { TaskComponent } from './components/task/task.component';
+
+import {MatDividerModule} from '@angular/material/divider';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +47,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NavComponent,
     DashboardComponent,
     TaskPageComponent,
-    KabanTasksComponent
+    KabanTasksComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +66,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatIconModule,
     MatListModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    MatDividerModule,
+
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

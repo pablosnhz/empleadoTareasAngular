@@ -25,6 +25,10 @@
   font-size: 14px;
 }
 
+.completed-task {
+  background-color: rgb(61, 37, 37);
+}
+
 .list-item:last-child {
   border: none;
 }
@@ -51,3 +55,26 @@
   opacity: 0;
 }
 
+// ESTILOS PARA NIVELES DE TAREAS
+.urgent-task {
+  color: red;
+}
+
+.blocking-task {
+  color: peru;
+}
+
+.info-task {
+  color: green;
+}
+
+// mensajes tareas
+
+.msg-finalizado {
+  color: green;
+  font-weight: bold;
+}
+.msg-acompletar {
+  color: red;
+  font-weight: bold;
+}

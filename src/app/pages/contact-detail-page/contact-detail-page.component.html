@@ -3,6 +3,7 @@
 <ng-container *ngIf="contacto; else elseContacto">
   <h1>Contacto: {{ id }}</h1>
   <!-- GENERAMOS UN PIPE PARA TRAER EL NOMBRE COMPLETO -->
+  <img [src]="contacto.picture.thumbnail" class="rounded-image">
   <h2>Nombre: {{ contacto | nombreCompleto }}</h2>
   <h3>Email: {{ contacto.email }} </h3>
 </ng-container>
@@ -13,4 +14,4 @@
 
 <!-- filtro previo nos va a volver a la lista por filtro -->
 <!-- si no tuviera el filtro nos trae toda la lista completa de contactos -->
-<a routerLink="/dashboard/contacts" [queryParams]="{sexo: filtroPrevio}">Volver</a>
+<a mat-stroked-button routerLink="/dashboard/contacts" [queryParams]="{sexo: filtroPrevio}">Volver</a>

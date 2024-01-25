@@ -1,5 +1,5 @@
-<h1>Juego del Amigo Invisible</h1>
-<h3>Bienvenido!</h3>
+<h1>Tareas del dia</h1>
+<h3>Seleccionador de Tareas</h3>
 
 
 <ng-container *ngIf="contactoSeleccionado; else elseSeleccionado">
@@ -8,7 +8,7 @@
 
 <ng-template #elseSeleccionado>
   <div>
-    <p>No has seleccionado un amigo! Selecciona uno</p>
+    <p>Asigna tareas a un empleado! Selecciona uno</p>
   </div>
 </ng-template>
 
@@ -16,11 +16,19 @@
 <!-- ngif si el token esta presente entonces deja de aparecer iniciar sesion -->
 <!-- <a *ngIf="!token" routerLink="/login">Iniciar Sesion</a> -->
 
-<button mat-raised-button color="primary" (click)="navegarAContacts()">Ver tus contactos</button>
+<button mat-raised-button color="primary" (click)="navegarAContacts()">Ver empleados</button>
 
+<hr>
 
 <div>
   <p>Filtros:</p>
-  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'female'}">Amigas | </a>
-  <a [routerLink]="['/dashboard/contacts']" [queryParams]="{sexo: 'male'}">Amigos</a>
+  <a  mat-button color="primary"
+      [routerLink]="['/dashboard/contacts']"
+      [queryParams]="{sexo: 'female'}">
+      Empleadas  </a>
+
+  <a  mat-button color="primary"
+      [routerLink]="['/dashboard/contacts']"
+      [queryParams]="{sexo: 'male'}"> Empleados</a>
+
 </div>

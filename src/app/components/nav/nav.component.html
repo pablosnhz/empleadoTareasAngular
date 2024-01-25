@@ -302,7 +302,7 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="['/']">Amigo Invisible</a>
+      <a mat-list-item [routerLink]="['/']">Home Empleados</a>
       <a mat-list-item [routerLink]="['/dashboard/tasks']">Tareas</a>
       <a mat-list-item (click)="logout()">Logout</a>
       <!-- <button *ngIf="token" (click)="logout()">Logout</button> -->
@@ -318,7 +318,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Proyecto Angular</span>
+      <span>Tareas</span>
     </mat-toolbar>
     <!-- AGREGAMOS ESTE DIV CUANDO TRAIMOS EL STYLE DEL APP.COMPONENT
     PARA USAR EL CONTENT Y QUE NOS CENTRE LOS ELEMENTOS -->

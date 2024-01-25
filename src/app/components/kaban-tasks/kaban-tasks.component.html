@@ -1,17 +1,43 @@
 <div class="container">
   <h2>Pendientes</h2>
 
-  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo"
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todoTasks"
       [cdkDropListConnectedTo]="doneList" class="list" (cdkDropListDropped)="drop($event)">
-    <div class="list-item" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+      <ng-container *ngIf="todoTasks.length === 0">
+        <h4 class="msg-finalizado">No tienes tareas pendientes!</h4>
+      </ng-container>
+      <div class="list-item" *ngFor="let task of todoTasks" cdkDrag>
+        <app-task [task]="task"></app-task>
+      <!-- esto lo pasamos a otro componente para hacer uso del input
+            y asi dar mejor estructura por components -->
+        <!-- <div [ngClass]="
+            {'info-task': task.level === 0,
+              'urgent-task': task.level === 1,
+              'blocking-task': task.level === 2}">
+        <h4>{{task.title}}</h4>
+        <h5>{{ task.description }}</h5>
+      </div> -->
+    </div>
   </div>
 </div>
+
 
 <div class="container">
   <h2>Completadas</h2>
 
-  <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done"
+  <div  cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneTasks"
       [cdkDropListConnectedTo]="todoList" class="list" (cdkDropListDropped)="drop($event)">
-    <div class="list-item" *ngFor="let item of done" cdkDrag>{{item}}</div>
+      <ng-container *ngIf="doneTasks.length === 0">
+        <h4 class="msg-acompletar">Tienes tareas por terminar!</h4>
+      </ng-container>
+
+      <!-- AGREGAMOS EL COMPLETE TASK DEL INPUT PARA SABER LAS TAREAS COMPLETADAS -->
+    <div [ngClass]="{'completed-task': task.completed}" class="list-item" *ngFor="let task of doneTasks" cdkDrag>
+      <app-task [task]="task"></app-task>
+      <!-- <div>
+        <h4>{{task.title}}</h4>
+        <h5>{{ task.description }}</h5>
+      </div> -->
+    </div>
   </div>
 </div>

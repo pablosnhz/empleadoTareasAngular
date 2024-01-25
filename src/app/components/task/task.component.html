@@ -1,0 +1,10 @@
+<div [ngClass]="
+            {
+              'info-task': task.level === 0,
+              'urgent-task': task.level === 1,
+              'blocking-task': task.level === 2,
+              'completed-task': task.completed
+              }">
+        <h4>{{task.title}}</h4>
+        <h5>{{ task.description }}</h5>
+</div>

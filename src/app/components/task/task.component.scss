@@ -1,0 +1,25 @@
+// ESTILOS PARA NIVELES DE TAREAS
+.urgent-task {
+  color: red;
+}
+
+.blocking-task {
+  color: peru;
+}
+
+.info-task {
+  color: green;
+}
+
+// mensajes tareas
+
+.msg-finalizado {
+  color: green;
+  font-weight: bold;
+}
+.msg-acompletar {
+  color: red;
+  font-weight: bold;
+}
+
+
