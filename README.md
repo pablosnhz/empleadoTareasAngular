@@ -132,3 +132,11 @@ Esto lo solucione haciendo los cambios donde tenia, hombre mujer, lo cambie a ma
 
 =================
 APLICAMOS MATERIAL DESIGN, SCHEMATICS AL PROYECTO
+Para empezar hicimos el install de angular material para poder generar los schematics que vamos a ir sacando de la pagina de angular, empezamos generando el nav el cual lo hicimos con el material:navigation, hacemos las importaciones como tambien la implementacion agregamos el componente dashboard al routing.
+Sacamos de la pagina el dashboard viejo para implementar el nuevo, tuve problemas al especificar el dashboard porque tenia mas de un module y no lograba especificar bien los components para que se muestren, tener en cuenta eso cuando hay varios modulos.
+Acomodamos en dashboard en la parte superior usando el style que teniamos el html principal, por este mismo tema tuve que importar modulos en el otro modulo para que me tome los routes.
+Ordenamos los routerLinks para que se aplique a dashboard.
+Algunos modulos de angular material no los traia de forma automatica a si que tuve que traerlos de forma manual.
+Al seleccionar los contactos, le pusimos un spinner el cual va a aparecer cuando esten cargando lo usuarios, este lo declaramos en una condicional como en la parte del codigo ts.
+Luego agregamos el angular material para el diseno de la seccion de tareas, modificamos los valores a acorde al gusto de cada uno.
+Con esto ya finalizamos lo que seria la aplicacion y como vinculamos el angular material con las rutas.

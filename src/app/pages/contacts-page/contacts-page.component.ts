@@ -49,7 +49,7 @@ export class ContactsPageComponent implements OnInit {
       // CLASE 12 HTTP
       if(params.sexo === 'female' || params.sexo === 'male'){
         // Implementacion para obtener la lista de contactos aleatorias
-        this.randomUsersService.obtenerRandomContacts(10, params.sexo).subscribe(
+        this.randomUsersService.obtenerRandomContacts(6, params.sexo).subscribe(
           {
             next: (response: Results) => {
               // this.contact = response.results[0];
@@ -69,7 +69,7 @@ export class ContactsPageComponent implements OnInit {
           });
       } else {
         // Implementacion para obtener la lista de contactos aleatorias
-    this.randomUsersService.obtenerRandomContacts(10).subscribe(
+    this.randomUsersService.obtenerRandomContacts(6).subscribe(
       {
         next: (response: Results) => {
           // this.contact = response.results[0];
