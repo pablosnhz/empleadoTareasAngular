@@ -3,7 +3,7 @@
 
 
 <ng-container *ngIf="contactoSeleccionado; else elseSeleccionado">
-  <h4> tu amigo invisible es: {{ contactoSeleccionado.name.first }} </h4>
+  <h4 ngClass="{font}"> Las tareas asignadas son para: {{ contactoSeleccionado.name.first }} </h4>
 </ng-container>
 
 <ng-template #elseSeleccionado>

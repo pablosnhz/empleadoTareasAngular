@@ -1,18 +1,34 @@
 # NgRouting
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+Proyecto con Angular 16.2.7
+
+Resumen del proyecto
+Realice un proyecto el cual tiene la opcion de elegir un empleado a el cual se le asigna tareas a realizar.
+
+Para este proyecto hice uso de:
+
+🔸ROUTING Configuré las rutas de la aplicación para facilitar la navegación mediante el uso de Angular Router y RouterLinks. Por medio de routing hice uso del 🔹navigationExtras para pasar informacion de los empleados.
+🔸GUARDS Implementé guards de ruta para proteger el acceso a ciertas áreas, garantizando que solo los usuarios con el token adecuado puedan acceder.
+🔸PETICION HTTP Utilicé peticiones HTTP para obtener el token necesario durante el inicio de sesión y para recuperar datos de empleados desde una API externa.
+🔸FORMULARIOS REACTIVOS Diseñé formularios que incluyen campos de correo electrónico y contraseña, aplicando validators para asegurar la entrada de datos correcta.
+🔸CICLO DE VIDA Aproveché los ciclos de vida de los componentes para inicializar datos de manera eficiente y detectar cambios en tiempo real.
+🔸SERVICES Centralicé la lógica de manejo de datos mediante servicios, facilitando las peticiones a la API y la manipulación de la información.
+🔸DIRECTIVAS Implementé directivas para manipular datos de manera efectiva en los templates.
+🔸RXJS Utilicé RxJS y Observables para gestionar el flujo de datos y abordar la asincronía de manera eficiente.
+🔸PIPES Simplifiqué y transformé datos directamente en el template mediante el uso de pipes.
+🔸ANGULAR MATERIAL Integré componentes de Angular Material y aproveché sus esquemas (schematics) para implementar funcionalidades como el drag and drop.
 
 PRIMERA PARTE
 
 Para empezar generamos los components los cuales van a tener la finalidad de hacernos navegar por diversas routes, como lo logramos? mediante routes las cuales declaramos en el routing.module los cuales mantienen un orden segun la route donde querramos navegar, tambien le dimos un valor default que seria el home. Donde tambien las rutas pueden tener elementos hijos los cuales son como direcciones acumulativas hablando de rutas.
-Ya para empezar me parece raro que no tuve que poner ningun componente en el principal como para que se muestren, sino que con el router-outlet ya muestra el contenido de las rutas.
+No tuvimos que llamar a ningun componente en el principal como para que se muestren, sino que con el router-outlet ya muestra el contenido de las rutas.
 Importamos los components al routing.module, tanto agregar su path como su component, para el notfound, usamos asteriscos en el caso de que no encuentre una ruta especifica.
 Utilizamos el routerLink para los enlaces dentro de las etiquetas. Para hacer las conexiones de routes en los distintos components tuvimos que llamar desde el constructor al Router.
-ActivatedRoute nos va a decir el contenido que hay en la url, controlamos a donde se podra navegar y donde no, usando el AuthGuard, que es lo que nos va a dar esa opcion que la vamos a declarar en en routing.module, esencial las opciones de los opciones y cual vamos a usar, ahora usamos el CanActivate(lo seleccionamos cuando generamos el guard). en el authGuard no nos dejo traer el constructor router asi que lo tuvimos que traer mediante un inject declarado.
+Controlamos a donde se podra navegar y donde no, usando el AuthGuard, que es lo que nos va a dar esa opcion que la vamos a declarar en en routing.module, ahora usamos el CanActivate(lo seleccionamos cuando generamos el guard). en el authGuard no nos dejo traer el constructor router asi que lo tuvimos que traer mediante un inject declarado.
 
 SEGUNDA PARTE
 
-Generamos el codigo para navegar entre rutas como un amigo invisible, que depende quien sea nos van a aparecer sus datos y tambien le agregamos diversos filtros. Agregamos tambien el boton para cerrar el login que nos redirrecciona a la pantalla de home.
+Generamos el codigo para navegar entre rutas con las diversas secciones, que depende quien sea nos van a aparecer sus datos y tambien le agregamos diversos filtros. Agregamos tambien el boton para cerrar el login que nos redirrecciona a la pantalla de home.
 Vamos navegando entre los diversos urls con el router.navigate.
 Utilizamos los queryParams para hacer busqueda por orden, filtros, recordar usar navigationExtra para hacer uso de los queryParams o para state datam, el queryparams tambien se ve reflejado en el url ejemplo filter=sexo.
 Creamos en la pagina de contactos una funcion de volverAHome, para realizar una navigationExtra, la cual al especificar el parametro contacto mediante un evento de click, nos va a parecer en el home el cual lo traimos con el ngOnInit para mostrar los datos una vez que seleccionemos a un amigo y hacemos uso del seleccionado llamando al nombre mediante una interpolacion.
@@ -23,7 +39,7 @@ Hasta aca realizamos un ngContainer para mostrar datos, como tambien utilizamos 
 Sistema de login
 Para empezar importamos tanto el formsModule como el HttpClient y generamos el servicio para traer los datos del mismo, en este caso el token para acceder por login en el caso de que se encuentre presente el token en el service Auth, en el service llamamos al httpClient en el constructor.
 Definimos la funcion Login para acceder a los datos que nos va a traer la peticion http, la cual la cual declaramos body la cual tiene email de tipo email y como password tipo password. Definimos el login con una Observable para luego hacer la suscripcion en el el loginTS, trayendo primero en el constructor el service y hacer la suscripcion.
-Una vez llamado el servio creamos una funcion, la cual definimos email y password varios para que?
+Una vez llamado el servio creamos una funcion, la cual definimos email y password, para que?
 para asi poder completar el input, en el caso de que el token coincida, va a entrar y nos va a mandar con el navigate al Home, en esa misma funcion definimos los error en el caso de que los haya y tambien terminamos con complete.
 Recordar que utilizamos el canActivate para el AuthGuard y asi no se puede hacer a diferentes rutas sino ingresando por el login primero. tambien esta el canActivate para los hijos.
 
@@ -40,7 +56,7 @@ REHACIENDO EL EJERCICIO EXPLICANDO TODO
 
 Para empezar declaramos las rutas mediante el path y los components, ya eso define las rutas por url.
 Generamos los componentes con sus caracteristicas segun donde este posicionado y mediante el router link navego tanto como para ir y volver a las secciones mediante botones.
-para iterar sobre la lista de contactos que cree mediante la interface la vamos a traer mediante una promesa, la cual vamos a crear una funcion para que la promesa sea resolve con una lista que luego hacemos llamado de la lista mediante el constructor llamando al service y asi si poder iterar sobre los elementos de la promesa.
+para iterar sobre la lista de contactos que cree mediante la interface la vamos a traer mediante una promesa, la cual vamos a crear una funcion para que la promesa sea resolve con una lista para luego hacer llamado de la lista mediante el constructor llamando al service y asi si poder iterar sobre los elementos de la promesa.
 Luego para generar los urls segun el id seleccionado, esto lo hacemos mediante los params y el ActivatedRoute definido en el OnInit, dentro del parametro y nos suscribimos para obtener ese id que tambien lo declaramos como tipo any | undefined.
 
 TRAER CONTACTO SELECCIONADO AL HOME
@@ -67,7 +83,7 @@ USO DEL AUTHGUARD
 Para empezar declaramos una const router de tipo Router para hacer la inject(router).
 Creamos un let token para saber si esta para saber si el token esta presente en el sessionStorage, de ser asi accede y de no ser asi nos regresa a login, con esto conseguimos el permiso de si navegar por la pagina si esta o no los datos del login que devuelve true si esta y podemos navegar.
 
-Como hacemos uso de los parametros que nos van a dar la opcion de seleccionar los Amigos o Amigas, mediante un navigationExtras declaramos el parametro queryParams que va a tener el sexo el cual van a estar 'todos' pero el [queryParams] los definimos uno con 'hombre' y el otro 'mujer' en el index el navigationExtra lo generamos dentro de la funcion de navegarAContacts.
+Como hacemos uso de los parametros que nos van a dar la opcion de seleccionar el empleado o empleada, mediante un navigationExtras declaramos el parametro queryParams que va a tener el sexo el cual van a estar 'todos' pero el [queryParams] los definimos uno con 'male' y el otro 'female' en el index el navigationExtra lo generamos dentro de la funcion de navegarAContacts.
 Como hacemos para obtener eso segun su sexo, esto ya lo habiamos definido en el service para hacer la busqueda, por medio del route: ActivatedRoute, en el ngOnInit hacemos uso del queryParams, nos suscribimos y creamos una funcion la cual if params.sexo se va a almacenar en filtroSexo la cual declare como 'todos' pero en el caso de no ser asi, va a traer los hombres o mujeres aunque creo que no era tampoco necesario poner 'todos' porque si lo saco y dejo el '' vacio, vuelve igual.
 Una vez hecho eso en contactsPage, ahora mediante un ngIf dentro de un container vamos a seleccionar el sexo segun lo que hayamos seleccionado si amigo o amiga, si seleccione mujer o hombre por el filtroSexo, en el caso de haber seleccionado uno se mostrara como "has seleccionado a {{ filtroSexo }}, de no ser asi ngTemplate, estas viendo la lista completa.
 
@@ -96,7 +112,7 @@ HTTP
 Para pasar pasamos los datos del json de la api a formato interface lo hicimos con to json to typescript.
 Vamos a crear un servicio randomUser para generar un get dentro de una funcion obtenerRandomContact mediante una observable de un results, donde va a estar la url de la api y con esto ya nos estaria devolviendo el resultado para manipularlo luego en el componente aparte randomUser.ts dentro de el definimos randomResults de tipo results para luego dentro del onInit llamando a la funcion del service, nos vamos a suscribir para obtener la function response de tipo results.
 Definimos randomContact de tipo IRandomContact para que dentro del oninit definimos un let para llamarlo en el oninit y lo igualamos a response.results[0], ya con esto podemos ver los datos en pantalla haciendo su llamado con la definicion que hicimos randomContact en el html. Dentro de el para mostrar los datos lo hicimos por medio de un ngContainer y ngTemplate, dentro del MaterialModule importamos el spinner para usarlo en el ngTemplate.
-Definimos randomContact en un input, el que habiamos hecho le agregamos el import y el servicion con la funcion que llame, lo voy a pasar al otro componente, llevando esa funcion cambiamos randomContact por contact de tipo IRandomContact | undefined. Pero si es lo mismo no se para que traigo el input... si lo usamos porque traimos todo el componente al otro por el html y definimos el input pero es como si fuera lo mismo, pusimos en practica el input, sirve. Y comente el randomResults del primer componente porque solo lo usamos para hacer uso de la funcion que nos va a traer el resultado pero no, randomResults: Results eso lo usamos en la funcion el Results aunque podria haber venido sin la necesidad de haber puesto el randomResults.
+Definimos randomContact en un input, el que habiamos hecho le agregamos el import y el servicion con la funcion que llame, lo voy a pasar al otro componente, llevando esa funcion cambiamos randomContact por contact de tipo IRandomContact | undefined. Pero si es lo mismo no se para que traigo el input... si lo usamos porque traimos todo el componente al otro por el html y definimos el input pero es como si fuera lo mismo, pusimos en practica el input, sirvio. Y comente el randomResults del primer componente porque solo lo usamos para hacer uso de la funcion que nos va a traer el resultado pero no, randomResults: Results eso lo usamos en la funcion el Results aunque podria haber venido sin la necesidad de haber puesto el randomResults.
 
 Generamos un funcion de obtenerNuevoContact con el mismo contenido del que habiamos hecho para hacer un button y evento click para cuando lo presionamos nos genera un nuevo contacto.
 
@@ -131,7 +147,9 @@ Esta devolviendo por sexo pero traer variado y no segun el especificado, nos fij
 Esto lo solucione haciendo los cambios donde tenia, hombre mujer, lo cambie a male y female.
 
 =================
+
 APLICAMOS MATERIAL DESIGN, SCHEMATICS AL PROYECTO
+
 Para empezar hicimos el install de angular material para poder generar los schematics que vamos a ir sacando de la pagina de angular, empezamos generando el nav el cual lo hicimos con el material:navigation, hacemos las importaciones como tambien la implementacion agregamos el componente dashboard al routing.
 Sacamos de la pagina el dashboard viejo para implementar el nuevo, tuve problemas al especificar el dashboard porque tenia mas de un module y no lograba especificar bien los components para que se muestren, tener en cuenta eso cuando hay varios modulos.
 Acomodamos en dashboard en la parte superior usando el style que teniamos el html principal, por este mismo tema tuve que importar modulos en el otro modulo para que me tome los routes.
