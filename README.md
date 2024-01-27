@@ -2,7 +2,7 @@
 
 Proyecto con Angular 16.2.7
 
-Resumen del proyecto
+Resumen del proyecto~
 Realice un proyecto el cual tiene la opcion de elegir un empleado a el cual se le asigna tareas a realizar.
 
 Para este proyecto hice uso de:
