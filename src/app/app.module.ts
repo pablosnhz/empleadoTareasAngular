@@ -30,6 +30,7 @@ import { TaskComponent } from './components/task/task.component';
 
 import {MatDividerModule} from '@angular/material/divider';
 import {MatCardModule} from '@angular/material/card';
+import { OnDemandPreloadingStrategy } from './routes/prealoading-strategies/on-demand-preloading-strategy';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import {MatCardModule} from '@angular/material/card';
     DashboardComponent,
     TaskPageComponent,
     KabanTasksComponent,
-    TaskComponent
+    TaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +72,9 @@ import {MatCardModule} from '@angular/material/card';
 
     MatCardModule,
   ],
-  providers: [],
+  providers: [
+    OnDemandPreloadingStrategy
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
